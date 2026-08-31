@@ -46,9 +46,12 @@ dsh plugin --profile web add github:BiKing567/dsh-subagent-panel
   - `@deepseek-ai/dsh-client-ui-tool` — for the `tool.call.toolview` slot
 - The APIs used (`sessions.openSubagent`, `subagentsByParent`,
   `SubagentAddress`) exist from `@deepseek-ai/dsh-client-runtime` `0.0.1-rc.1`
-  onward. The peer range is intentionally `*` because 0.x `^` ranges do not span
-  minor versions, so a pinned `^0.1.0-rc.6` would fail to resolve against any
-  other release line.
+  onward. The peer range is
+  `^0.1.0-0 || ^0.0.1-0 || >=0.2.0-0` rather than a plain `^0.1.0-rc.6`, because
+  node-semver only lets a prerelease satisfy a range when some comparator in it
+  shares that version's exact `major.minor.patch` tuple *and* itself carries a
+  prerelease tag. Both `^0.1.0-rc.6` and a broad-looking `*` therefore silently
+  exclude `0.1.0-rc.6` — which is the version this plugin is developed against.
 
 ## Build
 
