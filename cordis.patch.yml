@@ -1,0 +1,5 @@
+- insert:
+    - id: dsh-subagent-panel
+      name: 'dsh-subagent-panel'
+      config:
+        maxMessages: 500

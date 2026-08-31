@@ -1,0 +1,77 @@
+{
+  "name": "dsh-subagent-panel",
+  "version": "0.1.0",
+  "description": "DSH plugin: render every subagent as a clickable card in the main conversation that opens the child as an ordinary session — OpenCode-style subagent visibility, without re-rendering the shell's session view.",
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "subagent",
+    "ui"
+  ],
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "src",
+    "scripts",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-tool"
+      ],
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepare": "npm run build"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-client-locale": "*",
+    "@deepseek-ai/dsh-client-runtime": "*",
+    "@deepseek-ai/dsh-client-ui-slots": "*",
+    "@deepseek-ai/dsh-client-ui-tool": "*",
+    "@deepseek-ai/dsh-commands": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh-client-locale": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-runtime": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-slots": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-ui-tool": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-commands": {
+      "optional": true
+    }
+  }
+}
