@@ -33,7 +33,7 @@ a rebuild and a page refresh.
 You can also install straight from git:
 
 ```bash
-dsh plugin --profile web add github:you/dsh-subagent-panel
+dsh plugin --profile web add github:BiKing567/dsh-subagent-panel
 ```
 
 ## Requirements
